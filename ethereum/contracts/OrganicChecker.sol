@@ -25,12 +25,17 @@ contract OrganicChecker {
         return supplierList;
     }
 
-    function getSupplier(address _address) view public returns (string, uint, bool, bool) {
+    function getSupplierByAddress(address _address) view public returns (string, uint, bool, bool) {
         return (suppliers[_address].name, suppliers[_address].identifier, suppliers[_address].isCertified, suppliers[_address].isLabVerified);
     }
 
     function countSuppliers() view public returns (uint) {
         return supplierList.length;
+    }
+
+    function updateSupplier(address _address, bool _isCertified, bool _isLabVerified) public {
+        suppliers[_address].isCertified = _isCertified;
+        suppliers[_address].isLabVerified = _isLabVerified;
     }
 
     // TODO: Emit event
