@@ -64,12 +64,13 @@ class Consumers extends Component {
     return (
       <Layout>
         <Container style={{ marginTop: '30px' }}>
-          <Header style={{ marginLeft: '10px', fontSize: '46px' }}as='h1'>Consumers: You're Empowered.</Header>
-          <Header style={{ marginLeft: '10px' }}as='h2'>As a consumer it is your right to know if your food supplier is truly organic.</Header>
+          <Header style={{ marginLeft: '10px', fontSize: '46px' }} as='h1'>Consumers: You're Empowered.</Header>
+          <Header style={{ marginLeft: '10px' }} as='h2'>As a consumer it is your right to know if your food supplier is truly organic.</Header>
+          <Header style={{ marginLeft: '10px', marginBottom: '30px' }} as='h3'>Below is a list of every supplier we have on file.</Header>
           {this.renderSuppliers()}
-          <Button
+          {/* <Button
             content="See all suppliers"
-          />
+          /> */}
         </Container>
       </Layout>
     );
