@@ -3,7 +3,18 @@ import OrganicChecker from './build/OrganicChecker.json';
 
 const instance = new web3.eth.Contract(
     JSON.parse(OrganicChecker.interface),
-    '0x568cbe8DB4BC846a02beea564909148ee0EBcc54'
+    '0x354B399764FFCA4D0f94c6C06455d93570C33613'
 );
 
-export default instance;
+export async function getSuppliers() {
+    const allSuppliers = await instance.methods.getAllSuppliers().call();
+    
+    const suppliers = allSuppliers.map(async address => {
+      const result = await instance.methods.getSupplierByAddress(address).call();
+      return result;
+    });
+    const awaitedSuppliers = await Promise.all(suppliers);
+    return awaitedSuppliers;
+}
+
+export default instance
