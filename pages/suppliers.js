@@ -7,7 +7,7 @@ import instance from '../ethereum/organicChecker';
 class Suppliers extends Component {
   state = {
     companyname: '',
-    licensenumber: 0,
+    licensenumber: '',
     email: '',
     phone: '',
     errorMessage: '',
@@ -20,13 +20,10 @@ class Suppliers extends Component {
 
     try {
       const accounts = await web3.eth.getAccounts();
-      await instance.methods.setSupplier().send({
-        from: accounts[0],
-        _name: this.state.companyname,
-        _licenseNumber: this.state.licensenumber,
-        _email: this.state.email,
-        _phone: this.state.phone
-      });
+
+      await instance.methods.setSupplier(accounts[0], this.state.companyname, 
+        this.state.licensenumber, this.state.email, this.state.phone)
+        .send({from: accounts[0]});
     } catch (err) {
       this.setState({ errorMessage: err.message })
     }
