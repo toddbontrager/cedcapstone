@@ -19,8 +19,6 @@ contract OrganicCheckerz {
         suppliers[_address].licenseNumber = _licenseNumber;
         suppliers[_address].email = _email;
         suppliers[_address].phone = _phone;
-        // suppliers[_address].isCertified = _isCertified;
-        // suppliers[_address].isLabVerified = _isLabVerified;
 
         supplierList.push(_address) - 1;
     }
@@ -41,7 +39,4 @@ contract OrganicCheckerz {
         suppliers[_address].isCertified = _isCertified;
         suppliers[_address].isLabVerified = _isLabVerified;
     }
-
-    // TODO: Emit event
-    // require that the certifiying body is on the approved list which is hard coded OR points to an oracle
 }
