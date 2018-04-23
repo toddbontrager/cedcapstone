@@ -1,6 +1,6 @@
 pragma solidity ^0.4.22;
 
-contract OrganicCheckerz {
+contract OrganicChecker {
 
     struct Supplier {
         string name;
