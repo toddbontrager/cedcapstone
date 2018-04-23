@@ -7,14 +7,13 @@ class Consumers extends Component {
   static async getInitialProps() {
     const allSuppliers = await getSuppliers();
     return { allSuppliers }
-    
   }
 
 
   renderSuppliers() {
     const suppliers = this.props.allSuppliers.map(supplier => {
-      const isCertified = supplier[2];
-      const isLabVerified = supplier[3];
+      const isCertified = supplier[4];
+      const isLabVerified = supplier[5];
       let buttons;
 
       if (isCertified) {
@@ -52,7 +51,7 @@ class Consumers extends Component {
       return {
         header: supplier[0],
         meta: `License number: ${supplier[1]}`,
-        //description: isCertified,
+        description: `Phone number: ${supplier[3]}`,
         extra: buttons,
         fluid: true
       }
