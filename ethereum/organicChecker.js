@@ -3,7 +3,7 @@ import OrganicChecker from './build/OrganicChecker.json';
 
 const instance = new web3.eth.Contract(
     JSON.parse(OrganicChecker.interface),
-    '0xA9E46449A99abe9dD3686DA04DB8e044c30CA164'
+    '0x34702434c4a0339D99a929bCAE41A68A43640C55'
 );
 
 export async function getSuppliers() {

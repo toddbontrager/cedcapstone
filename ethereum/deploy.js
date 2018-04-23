@@ -1,11 +1,14 @@
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const Web3 = require('web3');
 const compiledOrganicChecker = require('./build/OrganicChecker.json');
-import config from '../config';
+const config = require('../config.json');
+
+const mneumonic = config.MNEUMONIC;
+const url = config.URL;
 
 const provider = new HDWalletProvider(
-  config.MNEUMONIC,
-  config.URL
+  mneumonic,
+  url
 );
 
 const web3 = new Web3(provider);
