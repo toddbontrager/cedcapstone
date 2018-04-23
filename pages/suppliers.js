@@ -11,12 +11,13 @@ class Suppliers extends Component {
     email: '',
     phone: '',
     errorMessage: '',
+    successMessage: '',
     loading: false
   };
 
   onSubmit = async (event) => {
     event.preventDefault();
-    this.setState({ loading: true, errorMessage: '' });
+    this.setState({ loading: true, errorMessage: '', successMessage: '' });
 
     try {
       const accounts = await web3.eth.getAccounts();
@@ -27,7 +28,14 @@ class Suppliers extends Component {
     } catch (err) {
       this.setState({ errorMessage: err.message })
     }
-    this.setState({ loading: false, value: '' });
+    this.setState({
+      loading: false,
+      companyname: '',
+      licensenumber: '',
+      email: '',
+      phone: '',
+      successMessage: 'Your submission was successful.'
+    });
   };
 
   render() {
@@ -38,7 +46,7 @@ class Suppliers extends Component {
             <Header style={{ marginLeft: '10px' }} as='h2'>Register as a supplier. Get more customers by providing them with proof of organic certification.</Header>
             <Header style={{ marginLeft: '10px', marginBottom: '30px' }} as='h3'>Please enter the required fields below. Provide evidence of your certifications and verifications directly to the administrator. You will pay the required "gas" fee.</Header>
             
-            <Form style={{ marginLeft: '10px' }} onSubmit={this.onSubmit} error={!!this.state.errorMessage} >
+            <Form style={{ marginLeft: '10px' }} onSubmit={this.onSubmit} error={!!this.state.errorMessage} success={!!this.state.successMessage} >
               <Form.Group>
                 <Form.Input
                   label='Company name'
@@ -73,6 +81,7 @@ class Suppliers extends Component {
                 </Form.Group>
               <Message error header="Oops!" content={this.state.errorMessage} />
               <Button primary loading={this.state.loading} type='submit'>Submit</Button>
+              <Message success header={this.state.successMessage} />
             </Form>
         </Container>
       </Layout>
