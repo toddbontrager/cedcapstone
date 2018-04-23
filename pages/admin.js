@@ -32,7 +32,7 @@ class Admin extends Component {
                 <Form.Radio label='Lab verified' verifiedvalue='true' checked={verifiedvalue === 'true'} onChange={this.verifiedHandleChange} />
                 <Form.Radio label='No lab verification' verifiedvalue='false' checked={verifiedvalue === 'false'} onChange={this.verifiedHandleChange} />
               </Form.Group>
-              <Button type='submit'>Submit</Button>
+              <Button primary type='submit'>Submit</Button>
             </Form>
         </Container>
       </Layout>
