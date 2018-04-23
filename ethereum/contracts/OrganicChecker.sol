@@ -1,6 +1,7 @@
 pragma solidity ^0.4.22;
 
 contract OrganicChecker {
+    address public owner = msg.sender;
 
     struct Supplier {
         string name;
@@ -14,7 +15,7 @@ contract OrganicChecker {
     mapping (address => Supplier) suppliers;
     address[] public supplierList;
 
-    function setSupplier(address _address, string _name, uint _licenseNumber, string _email, string _phone, bool _isCertified, bool _isLabVerified) public {
+    function setSupplier(address _address, string _name, uint _licenseNumber, string _email, string _phone) public {
         suppliers[_address].name = _name;
         suppliers[_address].licenseNumber = _licenseNumber;
         suppliers[_address].email = _email;
@@ -36,6 +37,7 @@ contract OrganicChecker {
     }
 
     function updateSupplier(address _address, bool _isCertified, bool _isLabVerified) public {
+        require(msg.sender == owner);
         suppliers[_address].isCertified = _isCertified;
         suppliers[_address].isLabVerified = _isLabVerified;
     }
