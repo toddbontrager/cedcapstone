@@ -1,10 +1,11 @@
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const Web3 = require('web3');
 const compiledOrganicChecker = require('./build/OrganicChecker.json');
+import config from '../config';
 
 const provider = new HDWalletProvider(
-  'limb improve neither raven casino decline mixture certain second want gold shove',
-  'https://rinkeby.infura.io/feTdfX2TCB08dhSp1HQu'
+  config.MNEUMONIC,
+  config.URL
 );
 
 const web3 = new Web3(provider);
