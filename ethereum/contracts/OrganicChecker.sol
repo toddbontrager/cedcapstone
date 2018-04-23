@@ -5,7 +5,7 @@ contract OrganicChecker {
 
     struct Supplier {
         string name;
-        uint licenseNumber;
+        string licenseNumber;
         string email;
         string phone;
         bool isCertified;
@@ -15,7 +15,7 @@ contract OrganicChecker {
     mapping (address => Supplier) suppliers;
     address[] public supplierList;
 
-    function setSupplier(address _address, string _name, uint _licenseNumber, string _email, string _phone) public {
+    function setSupplier(address _address, string _name, string _licenseNumber, string _email, string _phone) public {
         suppliers[_address].name = _name;
         suppliers[_address].licenseNumber = _licenseNumber;
         suppliers[_address].email = _email;
@@ -28,7 +28,7 @@ contract OrganicChecker {
         return supplierList;
     }
 
-    function getSupplierByAddress(address _address) view public returns (string, uint, string, string, bool, bool) {
+    function getSupplierByAddress(address _address) view public returns (string, string, string, string, bool, bool) {
         return (suppliers[_address].name, suppliers[_address].licenseNumber, suppliers[_address].email, suppliers[_address].phone, suppliers[_address].isCertified, suppliers[_address].isLabVerified);
     }
 
