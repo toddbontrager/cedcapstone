@@ -75,50 +75,50 @@ class Admin extends Component {
     return (
       <Layout>
         <Container style={{ marginTop: '30px' }}>
-            <Header style={{ marginLeft: '10px', fontSize: '50px' }}as='h1'>Admin</Header>
-            <Header style={{ marginLeft: '10px' }} as='h2'>For the administrator only. Your transaction will fail if you are not the administrator.</Header>
-            <Header style={{ marginLeft: '10px', marginBottom: '30px' }} as='h3'>Update the certifications and lab verifications here. Gas will be required.</Header>
+          <Header style={{ marginLeft: '10px', fontSize: '50px' }}as='h1'>Admin</Header>
+          <Header style={{ marginLeft: '10px' }} as='h2'>For the administrator only. Your transaction will fail if you are not the administrator.</Header>
+          <Header style={{ marginLeft: '10px', marginBottom: '30px' }} as='h3'>Update the certifications and lab verifications here. Gas will be required.</Header>
             
-            <Form style={{ marginLeft: '10px' }} onSubmit={this.onSubmit} error={!!this.state.errorMessage} success={!!this.state.successMessage}>
-              <Form.Group>
-                <Form.Input
-                  label='Supplier license number'
-                  placeholder='Supplier license number'
-                  value={this.state.licensenumber}
-                  onChange={event => this.setState({ licensenumber: event.target.value })}
-                  width={8}
-                  required/>
-              </Form.Group>
-              <Form.Group inline>
-                <label>Organic Certification</label>
-                <Form.Radio
-                  label='Certified'
-                  certvalue='true'
-                  checked={certvalue === 'true'}
-                  onChange={this.certHandleChange} />
-                <Form.Radio
-                  label='Not certified'
-                  certvalue='false'
-                  checked={certvalue === 'false'}
-                  onChange={this.certHandleChange} />
-              </Form.Group>
-              <Form.Group inline>
-                <label>3rd Party Lab Verified</label>
-                <Form.Radio
-                  label='Lab verified'
-                  verifiedvalue='true'
-                  checked={verifiedvalue === 'true'}
-                  onChange={this.verifiedHandleChange} />
-                <Form.Radio
-                  label='No lab verification'
-                  verifiedvalue='false'
-                  checked={verifiedvalue === 'false'}
-                  onChange={this.verifiedHandleChange} />
-              </Form.Group>
-              <Message error header="Oops!" content={this.state.errorMessage} />
-              <Button primary loading={this.state.loading} type='submit'>Submit</Button>
-              <Message success header={this.state.successMessage} />
-            </Form>
+          <Form style={{ marginLeft: '10px' }} onSubmit={this.onSubmit} error={!!this.state.errorMessage} success={!!this.state.successMessage}>
+            <Form.Group>
+              <Form.Input
+                label='Supplier license number'
+                placeholder='Supplier license number'
+                value={this.state.licensenumber}
+                onChange={event => this.setState({ licensenumber: event.target.value })}
+                width={8}
+                required/>
+            </Form.Group>
+            <Form.Group inline>
+              <label>Organic Certification</label>
+              <Form.Radio
+                label='Certified'
+                certvalue='true'
+                checked={certvalue === 'true'}
+                onChange={this.certHandleChange} />
+              <Form.Radio
+                label='Not certified'
+                certvalue='false'
+                checked={certvalue === 'false'}
+                onChange={this.certHandleChange} />
+            </Form.Group>
+            <Form.Group inline>
+              <label>3rd Party Lab Verified</label>
+              <Form.Radio
+                label='Lab verified'
+                verifiedvalue='true'
+                checked={verifiedvalue === 'true'}
+                onChange={this.verifiedHandleChange} />
+              <Form.Radio
+                label='No lab verification'
+                verifiedvalue='false'
+                checked={verifiedvalue === 'false'}
+                onChange={this.verifiedHandleChange} />
+            </Form.Group>
+            <Message error header="Oops!" content={this.state.errorMessage} />
+            <Button primary loading={this.state.loading} type='submit'>Submit</Button>
+            <Message success header={this.state.successMessage} />
+          </Form>
         </Container>
       </Layout>
     );

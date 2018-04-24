@@ -18,32 +18,32 @@ class MainCards extends Component {
 
   render() {
     return (
-        <div style={{ marginTop: '40px' }}>
-          <Grid>
-            <Grid.Column width={5} style={{ marginLeft: '10px' }}>
-              <Card>
-                <Card.Content header='Consumers' href='consumers' style={{ fontSize: '30px' }} />
-                <Card.Content description={consumers} />
-                <Card.Content extra>
-                  <Icon name='user' />
+      <div style={{ marginTop: '40px' }}>
+        <Grid>
+          <Grid.Column width={5} style={{ marginLeft: '10px' }}>
+            <Card>
+              <Card.Content header='Consumers' href='consumers' style={{ fontSize: '30px' }} />
+              <Card.Content description={consumers} />
+              <Card.Content extra>
+                <Icon name='user' />
                 Currently we have {this.state.supplierCount} Suppliers on file
-                </Card.Content>
-              </Card>
-            </Grid.Column>
+              </Card.Content>
+            </Card>
+          </Grid.Column>
 
-            <Grid.Column width={5}>
-              <Card>
-                <Card.Content header='Suppliers' href='suppliers' style={{ fontSize: '30px' }} />
-                <Card.Content description={suppliers} />
-              </Card>
-            </Grid.Column>
+          <Grid.Column width={5}>
+            <Card>
+              <Card.Content header='Suppliers' href='suppliers' style={{ fontSize: '30px' }} />
+              <Card.Content description={suppliers} />
+            </Card>
+          </Grid.Column>
 
-            <Grid.Column width={5}>
-              <Card>
-                <Card.Content header='Admin' href='admin' style={{ fontSize: '30px' }} />
-                <Card.Content description={admin} />
-              </Card>
-            </Grid.Column>
+          <Grid.Column width={5}>
+            <Card>
+              <Card.Content header='Admin' href='admin' style={{ fontSize: '30px' }} />
+              <Card.Content description={admin} />
+            </Card>
+          </Grid.Column>
         </Grid>
       </div>
     )
