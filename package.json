@@ -6,10 +6,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
-  },
-  "engines": {
-    "node": "8.9.3"
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Todd Bontrager",
   "license": "MIT",
