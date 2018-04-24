@@ -1,10 +1,13 @@
 {
   "name": "capstone",
   "version": "1.0.0",
-  "description": "",
+  "description": "Blockchain service for verifying suppliers organic status",
   "main": "index.js",
   "scripts": {
     "dev": "next dev"
+  },
+  "engines": {
+    "node": "^8.9.3"
   },
   "author": "Todd Bontrager",
   "license": "MIT",
