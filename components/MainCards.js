@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Card, Icon, Grid } from 'semantic-ui-react'
+import instance from '../ethereum/organicChecker';
+
 
 const consumers = [
   'Amy is a violinist with 2 years experience in the wedding industry.',
@@ -7,47 +9,54 @@ const consumers = [
 ].join(' ');
 
 const suppliers = [
-    'Test',
-    '123'
+  'Test',
+  '123'
 ].join(' ');
 
 const admin = 'Yo'
 
-const MainCards = () => (
-    <div>
-      <Grid>
-        
-        <Grid.Column width={5} style={{ marginLeft: '10px' }}>
-          <Card>
-            <Card.Content header='Consumers' href='consumers' />
-            <Card.Content description={consumers} />
-            <Card.Content extra>
-              <Icon name='user' />
-              4,278 Consumers have checked this week
-            </Card.Content>
-          </Card>
-        </Grid.Column>
+class MainCards extends Component {
+  state = {
+    supplierCount: '',
+  }
 
-        <Grid.Column width={5}>
-          <Card>
-            <Card.Content header='Suppliers' href='suppliers'/>
-            <Card.Content description={suppliers} />
-            <Card.Content extra>
-              <Icon name='user' />
-              912 Suppiers on file
-            </Card.Content>
-          </Card>
-        </Grid.Column>
+  async componentDidMount() {
+    const getSupplierCount = await instance.methods.countSuppliers().call();
+    this.setState({ supplierCount: getSupplierCount });
+  }
 
-        <Grid.Column width={5}>
-          <Card>
-            <Card.Content header='Admin' href='admin'/>
-            <Card.Content description={admin} />
-          </Card>
-        </Grid.Column>
+  render() {
+    return (
+        <div>
+          <Grid>
+            <Grid.Column width={5} style={{ marginLeft: '10px' }}>
+              <Card>
+                <Card.Content header='Consumers' href='consumers' />
+                <Card.Content description={consumers} />
+              </Card>
+            </Grid.Column>
 
-  </Grid>
-  </div>
-)
+            <Grid.Column width={5}>
+              <Card>
+                <Card.Content header='Suppliers' href='suppliers' />
+                <Card.Content description={suppliers} />
+                <Card.Content extra>
+                  <Icon name='user' />
+                {this.state.supplierCount} Suppliers on file
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+
+            <Grid.Column width={5}>
+              <Card>
+                <Card.Content header='Admin' href='admin'/>
+                <Card.Content description={admin} />
+              </Card>
+            </Grid.Column>
+        </Grid>
+      </div>
+    )
+  }
+}
 
 export default MainCards
