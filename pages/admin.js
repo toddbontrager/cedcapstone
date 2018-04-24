@@ -7,6 +7,7 @@ import { getSuppliers } from '../ethereum/organicChecker';
 
 class Admin extends Component {
   state = {
+    activeItem: 'admin',
     licensenumber: '',
     errorMessage: '',
     successMessage: '',
@@ -63,6 +64,10 @@ class Admin extends Component {
 
   certHandleChange = (e, { certvalue }) => this.setState({ certvalue })
   verifiedHandleChange = (e, { verifiedvalue }) => this.setState({ verifiedvalue })
+
+  componentDidMount() {
+    this.setState({ activeItem: 'admin' })
+  }
 
   render() {
     const { certvalue } = this.state;
