@@ -1,7 +1,7 @@
 {
   "name": "capstone",
   "version": "1.0.0",
-  "description": "Blockchain service for verifying suppliers organic status.",
+  "description": "Blockchain service for verifying suppliers organic status",
   "main": "index.js",
   "scripts": {
     "dev": "next",
