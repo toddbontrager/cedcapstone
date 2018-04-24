@@ -4,8 +4,10 @@
   "description": "Blockchain service for verifying suppliers organic status.",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "heroku-postbuild": "npm run dev"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build"
   },
   "engines": {
     "node": "8.9.3"
